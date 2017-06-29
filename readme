@@ -1,0 +1,9 @@
+Napisz "producenta", czyli klasę która będzie (w osobnym wątku) co ustalony czas wypluwała produkty (wypisywała je na ekran).
+
+musisz mieć metody:
+	- do rozpoczęcia produkcji, 
+	- zatrzymania, 
+
+klasa ma mieć parametry:
+	- interwał produkcji
+	- nazwę produktu
