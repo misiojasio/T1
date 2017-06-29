@@ -1,22 +1,22 @@
 #ifndef PRODUCER_H
 #define PRODUCER_H
 
-#include "header.hpp"
+#include <iostream>
+#include <chrono>
+#include <thread>
+
+using namespace std::chrono_literals;
 
 class Producer {
 
-	string product;
+	std::string product;
 	std::chrono::milliseconds interval;
-	thread first;
+	std::thread first;
 
 public:
 
-	Producer(string product = "box", std::chrono::milliseconds interval = 666ms) {
-		this->product=product;
-		this->interval=interval;
+	Producer(std::string product = "box", std::chrono::milliseconds interval = 666ms);
 
-		first = thread(&Producer::GoProduce, this);
-	}
 	void GoProduce();
 	void StopProduce();
 };
