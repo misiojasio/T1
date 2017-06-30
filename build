@@ -1,0 +1,1 @@
+g++ -Wall -pthread main.cpp producer.cpp -o main
