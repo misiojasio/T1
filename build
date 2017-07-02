@@ -1,1 +1,3 @@
-g++ -Wall -pthread main.cpp producer.cpp -o main
+#!/bin/bash
+  
+g++ -Wall -Wextra -pthread main.cpp producer.cpp -o main

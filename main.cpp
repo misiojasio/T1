@@ -4,18 +4,20 @@
 #include "producer.hpp"
 
 using namespace std;
+using namespace std::chrono_literals;
 
 int main()
 {
-	cout << "Begin" << endl;
-	//Producer p(); //temporarily disabled
+	cout << "Begin of main" << endl;
 	cout << "1" << endl;
-	Producer p2("car", 425ms);
-	cout << "1" << endl;
-	Producer p3("house", 325ms);
-	cout << "1" << endl;
-	Producer p4("plane", 225ms);
-	cout << "End" << endl;
-
+	thread t1(&Producer::startProduce, Producer());
+	cout << "2" << endl;
+	t1.detach();
+	cout << "3" << endl;
+	this_thread::sleep_for(5s);
+	cout << "4" << endl;
+	Producer stop;
+	stop.stopProduce();
+	cout << "End of main" << endl;
 	return 0;
 }

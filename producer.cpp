@@ -5,15 +5,19 @@
 using namespace std;
 using namespace std::chrono_literals;
 
-Producer::Producer(string products, chrono::milliseconds interval) {
-	this->products = products;
+Producer::Producer(string product, chrono::milliseconds interval) {
+	this->product = product;
 	this->interval = interval;
-
-	first = thread(&Producer::productLine, this);
-	first.join();
 }
 
-void Producer::productLine() {
+void Producer::startProduce() {
+	while (isRunning) {
+		cout << product << endl;
 		this_thread::sleep_for(interval);
-		cout << products << endl;
+	}
+}
+
+void Producer::stopProduce() {
+	isRunning = 0;
+	cout << "Stoping production" << endl;
 }
