@@ -1,5 +1,6 @@
 #include <thread>
 #include <chrono>
+#include <atomic>
 #include "producer.hpp"
 
 using namespace std;
@@ -17,4 +18,9 @@ void Producer::productLine() {
 		cout << product << endl;
 		this_thread::sleep_for(interval);
 	}
+}
+
+void Producer::stopProduce() {
+	isRunning = false;
+	cout << "Holding production" << endl;
 }

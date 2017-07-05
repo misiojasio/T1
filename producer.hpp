@@ -4,13 +4,14 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <atomic>
 
 class Producer {
 
 	std::string product;
 	std::chrono::milliseconds interval;
 	std::thread first;
-	bool isRunning;
+	std::atomic_bool isRunning;
 
 	void productLine();
 
