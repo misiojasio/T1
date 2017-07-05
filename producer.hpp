@@ -12,6 +12,8 @@ class Producer {
 	std::thread first;
 	bool isRunning;
 
+	void productLine();
+
 public:
 
 	Producer(std::string product = "box", std::chrono::milliseconds interval = std::chrono::milliseconds(404));
