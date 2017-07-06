@@ -1,7 +1,7 @@
-#include <iostream>
-#include <thread>
 #include <chrono>
+#include <iostream>
 #include "producer.hpp"
+#include <thread>
 
 using namespace std;
 using namespace std::chrono_literals;
@@ -14,8 +14,5 @@ int main()
 	cout << "2" << endl;
 	cout << "End of main" << endl;
 
-	while(true) {
-	}
-	
 	return 0;
 }

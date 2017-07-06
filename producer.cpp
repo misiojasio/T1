@@ -1,7 +1,6 @@
-#include <thread>
 #include <chrono>
-#include <atomic>
 #include "producer.hpp"
+#include <thread>
 
 using namespace std;
 using namespace std::chrono_literals;
@@ -10,7 +9,11 @@ Producer::Producer(string product, chrono::milliseconds interval) {
 	this->product = product;
 	this->interval = interval;
 
-	first = thread(&Producer::productLine, this);
+	pTh = thread(&Producer::productLine, this);
+}
+
+Producer::~Producer() {
+	pTh.join();
 }
 
 void Producer::productLine() {
@@ -22,5 +25,5 @@ void Producer::productLine() {
 
 void Producer::stopProduce() {
 	isRunning = false;
-	cout << "Holding production" << endl;
+	cout << "Stopping production" << endl;
 }
